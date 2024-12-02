@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+#define TAM 15
+
+//1. Faça um programa em C que leia um vetor do tipo float com 15 elementos e apresente a soma do menor e maior elemento do vetor fornecido.
+
+void imprimirsoma(){
+    float vetor[TAM];
+    float menor,maior,soma;
+
+    printf("Digite 15 números para preencher o vetor: \n");
+    for(int i = 0 ; i < TAM; i++){
+        printf("%dº número: ", i+ 1);
+        scanf("%f", &vetor[i]);
+    }
+
+    menor = vetor[0];
+    maior = vetor[0];
+
+    for (int i = 0; i < TAM; i++){
+        if (vetor[i] < menor){
+            menor = vetor[i];
+        }
+        if (vetor[i] > maior){
+            maior = vetor[i];
+        }
+    }
+    
+    soma = maior + menor;
+
+    printf("Menor número: %.2f\n", menor);
+    printf("Maior número: %.2f\n", maior);
+    printf("Soma do maior e menor: %.2f\n", soma);
+
+}
+
+int main(){
+    imprimirsoma();
+    return 0;
+}
