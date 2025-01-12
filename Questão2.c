@@ -1,42 +1,36 @@
 #include <stdio.h>
 #include <string.h>
 
-#define TAM 100
+#define TAM 80
 
-// 2. Faça um programa em C que leia uma string e um caractere do usuário e informe se a string de entrada contém o caractere fornecido.
-void identificarcaractere() {
-    char str[TAM];
+int main(){
+    char str1[TAM];
     char caractere;
-    int encontrado = 0;
+    int encontrado;
 
-    printf("Digite uma string (até 100 caracteres): \n");
-    fgets(str, sizeof(str), stdin);
+    printf("Digite uma frase: \n");
+    fgets(str1,sizeof(str1),stdin);
 
-    // Remove o caractere de nova linha, se presente, após o fgets
-    str[strcspn(str, "\n")] = '\0';
+    str1[strcspn(str1, "\n")] = '\0';
 
     printf("Digite um caractere: \n");
-    // Limpa o buffer para evitar problemas com a leitura após o fgets
-    getchar();  // Consome o '\n' restante do buffer
-    scanf("%c", &caractere);
+    scanf(" %c", &caractere);
 
-    // Verificando se o caractere está na string
-    for (int i = 0; i < strlen(str); i++) {
-        if (str[i] == caractere) {
+    
+
+    for(int i = 0; str1[i] != '\0'; i++){
+        if(str1[i] == caractere){
             encontrado = 1;
             break;
         }
     }
 
-    // Exibindo o resultado
-    if (encontrado) {
-        printf("O caractere '%c' foi encontrado na string '%s'.\n", caractere, str);
-    } else {
-        printf("O caractere '%c' não foi encontrado na string '%s'.\n", caractere, str);
+    if(encontrado){
+        printf("O caractere %c está presente na string.", caractere);
+    }else{
+        printf("O caractere %c não está presente na string", caractere);
     }
-}
 
-int main() {
-    identificarcaractere();
     return 0;
+
 }
